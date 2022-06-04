@@ -1,8 +1,20 @@
 {
   "name": "sapphire-plugin-modal-commands",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./register": {
+      "import": "./register.mjs",
+      "require": "./register.js"
+    }
+  },
   "scripts": {
     "build": "tsup"
   },
