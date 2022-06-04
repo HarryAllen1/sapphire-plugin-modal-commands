@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "declaration": true,
+    "target": "es2020",
+    "typeRoots": ["node_modules/@types"],
+    "baseUrl": "src",
+    "rootDir": "src",
+    "strict": true
+  },
+  "include": ["src/**/*.ts"]
+}
