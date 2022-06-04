@@ -1,6 +1,6 @@
 {
   "name": "sapphire-plugin-modal-commands",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -28,6 +28,19 @@
     "url": "https://github.com/MajesticString/sapphire-plugin-modal-commands/issues"
   },
   "homepage": "https://github.com/MajesticString/sapphire-plugin-modal-commands#readme",
+  "keywords": [
+    "sapphire",
+    "plugin",
+    "modal",
+    "commands",
+    "discord.js",
+    "discord",
+    "discord-modals",
+    "modals",
+    "typescript",
+    "esm",
+    "bot"
+  ],
   "dependencies": {
     "@sapphire/framework": "3.0.0-next.b7485a2.0",
     "discord.js": "^13.7.0",
