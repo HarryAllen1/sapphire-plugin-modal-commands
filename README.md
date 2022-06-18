@@ -8,23 +8,23 @@ Typescript:
 
 ```ts
 // src/lib/setup.ts
-import 'sapphire-plugin-modal-commands/register';
+import "sapphire-plugin-modal-commands/register";
 
 // src/commands/modal.ts
-import { Command, SapphireClient } from '@sapphire/framework';
+import { Command, SapphireClient } from "@sapphire/framework";
 import {
   MessageActionRow,
   Modal,
   ModalActionRowComponent,
   ModalSubmitInteraction,
   TextInputComponent,
-} from 'discord.js';
+} from "discord.js";
 
 export class UserCommand extends Command {
   constructor(ctx: Command.Context, options: Command.Options) {
     super(ctx, {
       ...options,
-      name: 'example',
+      name: "example",
       chatInputCommand: {
         register: true,
       },
@@ -34,16 +34,16 @@ export class UserCommand extends Command {
   chatInputRun(interaction: Command.ChatInputInteraction) {
     interaction.showModal(
       new Modal()
-        .setTitle('Modal Example')
+        .setTitle("Modal Example")
         // format: (command name)--(customId)
         // The separator can be changed in the client options (options.modalCommands.separator)
-        .setCustomId('example--example-modal')
+        .setCustomId("example--example-modal")
         .addComponents(
           new MessageActionRow<ModalActionRowComponent>().addComponents(
             new TextInputComponent()
-              .setLabel('Example Input')
-              .setCustomId('example-input')
-              .setStyle('SHORT')
+              .setLabel("Example Input")
+              .setCustomId("example-input")
+              .setStyle("SHORT")
               .setRequired(true)
           )
         )
@@ -52,7 +52,7 @@ export class UserCommand extends Command {
 
   // Triggered on the modal submit
   modalRun(interaction: ModalSubmitInteraction) {
-    interaction.reply('Submitted!');
+    interaction.reply("Submitted!");
   }
 }
 ```
