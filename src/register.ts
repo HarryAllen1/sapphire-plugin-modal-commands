@@ -3,30 +3,30 @@ import {
   Plugin,
   postInitialization,
   SapphireClient,
-} from '@sapphire/framework';
-import { ModalSubmitInteraction } from 'discord.js';
-import { join } from 'node:path';
+} from "@sapphire/framework";
+import { ModalSubmitInteraction } from "discord.js";
+import { join } from "node:path";
 
 export class ModalCommandsPlugin extends Plugin {
   public static [postInitialization](this: SapphireClient): void {
     if (
-      this.options.modalCommands?.separator === '' &&
+      this.options.modalCommands?.separator === "" &&
       !this.options.modalCommands.unsafeUseAnEmptyStringAsSeparator
     )
-      return this.logger.error(
+      throw new TypeError(
         `The separator for the modal commands plugin cannot be an empty string (otherwise every modal interaction will trigger every command).
-If you want to use an empty string, set the \`options.modalCommands.unsafeUseAnEmptyStringAsSeparator\` to true.'`
+If you want to use an empty string, set \`client.options.modalCommands.unsafeUseAnEmptyStringAsSeparator\` to true.'`
       );
-    this.stores.get('listeners').registerPath(join(__dirname, 'listeners'));
+    this.stores.get("listeners").registerPath(join(__dirname, "listeners"));
   }
 }
 
 SapphireClient.plugins.registerPostInitializationHook(
   ModalCommandsPlugin[postInitialization],
-  'ModalCommands-PostInitialization'
+  "ModalCommands-PostInitialization"
 );
 
-declare module '@sapphire/framework' {
+declare module "@sapphire/framework" {
   export interface Command {
     /**
      * Runs when a modal is submitted. The modal must have a custom ID in the format:
@@ -49,7 +49,7 @@ export interface ModalCommandsPluginOptions {
   unsafeUseAnEmptyStringAsSeparator?: boolean;
 }
 
-declare module 'discord.js' {
+declare module "discord.js" {
   export interface ClientOptions {
     /**
      * Config options for the modal commands plugin
