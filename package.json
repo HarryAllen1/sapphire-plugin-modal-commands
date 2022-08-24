@@ -44,17 +44,17 @@
     "bot"
   ],
   "dependencies": {
-    "discord.js": "^13.8.0",
+    "discord.js": "^13.10.3",
     "tslib": "^2.4.0"
   },
   "devDependencies": {
     "@sapphire/framework": "3.0.0-next.e669f2b.0",
     "@types/node": "^17.0.45",
-    "tsup": "^6.1.2",
+    "tsup": "^6.2.2",
     "typescript": "^4.7.4",
     "vitest": "^0.15.2"
   },
   "peerDependencies": {
-    "@sapphire/framework": "3.0.0-next.e669f2b.0"
+    "@sapphire/framework": "^3.0.0"
   }
 }
