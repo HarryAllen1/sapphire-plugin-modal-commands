@@ -1,12 +1,12 @@
-import { Command, SapphireClient } from "@sapphire/framework";
-import { expect, test } from "vitest";
-import "../src/register";
+import { Command, SapphireClient } from '@sapphire/framework';
+import { expect, test } from 'vitest';
+import '../src/register';
 
-test("SapphireClient", () => {
+test('SapphireClient', () => {
   const client = new SapphireClient({
     intents: [],
     modalCommands: {
-      separator: "%%",
+      separator: '%%',
     },
   });
   expect(client).toBeTruthy();
@@ -14,7 +14,7 @@ test("SapphireClient", () => {
   const unsafeClient = new SapphireClient({
     intents: [],
     modalCommands: {
-      separator: "",
+      separator: '',
       unsafeUseAnEmptyStringAsSeparator: true,
     },
   });
@@ -25,13 +25,13 @@ test("SapphireClient", () => {
       new SapphireClient({
         intents: [],
         modalCommands: {
-          separator: "",
+          separator: '',
         },
       })
-  ).toThrowError("cannot be an empty string");
+  ).toThrowError('cannot be an empty string');
 });
 
-test("mock command", () => {
+test('mock command', () => {
   class UserCommand extends Command {
     constructor(ctx: Command.Context, options: Command.Options) {
       super(ctx, options);
@@ -42,5 +42,5 @@ test("mock command", () => {
   expect(
     typeof UserCommand.prototype.container.client.options.modalCommands
       ?.separator
-  ).toBe("string");
+  ).toBe('string');
 });
